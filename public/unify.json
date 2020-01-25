@@ -1,0 +1,1317 @@
+{
+  "Document": [
+    {
+      "description": "Add border box sizing in all browsers",
+      "selector": "*, ::before, ::after",
+      "declarations": [
+        {
+          "property": "box-sizing",
+          "value": "border-box",
+          "reference": "sanitize.css"
+        }
+      ]
+    },
+    {
+      "description": "1. Add text decoration inheritance in all browsers (opinionated).\n2. Add vertical alignment inheritance in all browsers (opinionated).",
+      "selector": "::before, ::after",
+      "declarations": [
+        {
+          "property": "text-decoration",
+          "value": "inherit",
+          "comment": "1",
+          "reference": "sanitize.css"
+        },
+        {
+          "property": "vertical-align",
+          "value": "inherit",
+          "comment": "2",
+          "reference": "sanitize.css"
+        }
+      ]
+    },
+    {
+      "description": "1. Correct the line height in all browsers.\n2. Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.\n3. Use the default cursor in all browsers (opinionated).\n4. Use a 4-space tab width in all browsers (opinionated).\n5. Remove the grey highlight on links in iOS (opinionated).\n6. Breaks words to prevent overflow in all browsers (opinionated).\n7. Use the default user interface font in all browsers (opinionated).",
+      "selector": "html",
+      "declarations": [
+        {
+          "property": "line-height",
+          "value": "1.5",
+          "comment": "1",
+          "reference": "sanitize.css",
+          "options": [
+            {
+              "value": "1.15",
+              "comment": "",
+              "reference": "normalize.css"
+            }
+          ]
+        },
+        {
+          "property": "text-size-adjust",
+          "value": "100%",
+          "comment": "2"
+        },
+        {
+          "property": "cursor",
+          "value": "default",
+          "comment": "3",
+          "reference": "sanitize.css"
+        },
+        {
+          "property": "tab-size",
+          "value": "default",
+          "comment": "4",
+          "reference": "sanitize.css"
+        },
+        {
+          "property": "-webkit-tap-highlight-color",
+          "value": "transparent",
+          "comment": "5",
+          "reference": "sanitize.css"
+        },
+        {
+          "property": "word-break",
+          "value": "break-word",
+          "comment": "6",
+          "reference": "sanitize.css"
+        },
+        {
+          "property": "font-family",
+          "value": "/* macOS 10.11-10.12 */ -apple-system,\n/* Windows 6+ */ Segoe UI, /* Android 4+ */ Roboto,\n/* Ubuntu 10.10+ */ Ubuntu, /* Gnome 3+ */ Cantarell,\n/* KDE Plasma 5+ */ Noto Sans, /* fallback */ sans-serif,\n/* macOS emoji */ \"Apple Color Emoji\", /* Windows emoji */ \"Segoe UI Emoji\",\n/* Windows emoji */ \"Segoe UI Symbol\", /* Linux emoji */ \"Noto Color Emoji\"",
+          "comment": "7",
+          "reference": "sanitize.css",
+          "options": [
+            {
+              "value": "sans-serif",
+              "comment": "7",
+              "reference": "reboot.css"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Sections": [
+    {
+      "description": "Remove the margin in all browsers.",
+      "selector": "body",
+      "declarations": [
+        {
+          "property": "margin",
+          "value": "0"
+        },
+        {
+          "property": "font-size",
+          "variable": "--font-size-base",
+          "value": "1rem",
+          "reference": "reboot.css"
+        }
+      ]
+    },
+    {
+      "description": "Render the `main` element consistently in IE.",
+      "selector": "main",
+      "declarations": [
+        {
+          "property": "display",
+          "value": "block"
+        }
+      ]
+    },
+    {
+      "description": "Correct the font size and margin on `h1` elements within `section` and `article` contexts in Chrome, Firefox, and Safari.",
+      "selector": "h1",
+      "declarations": [
+        {
+          "property": "font-size",
+          "value": "2em"
+        },
+        {
+          "property": "margin",
+          "value": "0.67em 0"
+        }
+      ]
+    },
+    {
+      "description": "Remove top margins from headings\nBy default, `<h1>`-`<h6>` all receive top and bottom margins. We nuke the top margin for easier control within type scales as it avoids margin collapsing.",
+      "selector": "h1, h2, h3, h4, h5, h6",
+      "declarations": [
+        {
+          "property": "margin-top",
+          "value": "0"
+        },
+        {
+          "property": "margin-bottom",
+          "value": "0.5rem"
+        }
+      ]
+    },
+    {
+      "description": "",
+      "selector": "p",
+      "declarations": [
+        {
+          "property": "margin-top",
+          "value": "0",
+          "reference": "reboot.css"
+        },
+        {
+          "property": "margin-bottom",
+          "value": "1rem",
+          "variable": "--paragraph-margin-bottom",
+          "reference": "reboot.css"
+        }
+      ]
+    }
+  ],
+  "Grouping content": [
+    {
+      "description": "1. Add the correct box sizing in Firefox.\n2. Show the overflow in Edge and IE.",
+      "selector": "hr",
+      "declarations": [
+        {
+          "property": "box-sizing",
+          "value": "content-box",
+          "comment": "1",
+          "reference": "normalize.css"
+        },
+        {
+          "property": "height",
+          "value": "0",
+          "comment": "1"
+        },
+        {
+          "property": "overflow",
+          "value": "visible",
+          "comment": "2"
+        }
+      ]
+    },
+    {
+      "description": "1. Correct the inheritance and scaling of font size in all browsers.\n2. Correct the odd `em` font sizing in all browsers.\n3. Remove browser default top margin\n4. Reset browser default of `1em` to use `rem`s\n5. Don't allow content to break outside",
+      "selector": "pre",
+      "declarations": [
+        {
+          "property": "font-family",
+          "value": "monospace, monospace",
+          "comment": "1"
+        },
+        {
+          "property": "font-size",
+          "value": "1em",
+          "comment": "2"
+        },
+        {
+          "property": "margin-top",
+          "value": "0",
+          "comment": "3",
+          "reference": "reboot.css"
+        },
+        {
+          "property": "margin-bottom",
+          "value": "1rem",
+          "comment": "4",
+          "reference": "reboot.css"
+        },
+        {
+          "property": "overflow",
+          "value": "auto",
+          "comment": "5",
+          "reference": "reboot.css"
+        }
+      ]
+    },
+    {
+      "description": "",
+      "selector": "dl, ol, ul",
+      "declarations": [
+        {
+          "property": "margin-top",
+          "value": "0",
+          "reference": "reboot.css"
+        },
+        {
+          "property": "margin-bottom",
+          "value": "1rem",
+          "reference": "reboot.css"
+        }
+      ]
+    },
+    {
+      "description": "Remove the margin on nested lists in Chrome and Safari.",
+      "selector": "dl dl, dl ol, dl ul, ol dl, ol ol, ol ul, ul dl, ul ol, ul ul",
+      "declarations": [
+        {
+          "property": "margin-block-start",
+          "value": "0",
+          "reference": "sanitize.css"
+        },
+        {
+          "property": "margin-block-end",
+          "value": "0",
+          "reference": "sanitize.css"
+        },
+        {
+          "property": "margin-bottom",
+          "value": "0",
+          "reference": "reboot.css"
+        }
+      ]
+    },
+    {
+      "description": "",
+      "selector": "dt",
+      "declarations": [
+        {
+          "property": "font-weight",
+          "value": "700",
+          "variable": "--dt-font-weight",
+          "reference": "reboot.css"
+        }
+      ]
+    },
+    {
+      "description": "",
+      "selector": "dd",
+      "declarations": [
+        {
+          "property": "margin-bottom",
+          "value": "0.5rem",
+          "reference": "reboot.css"
+        },
+        {
+          "property": "margin-left",
+          "value": "0",
+          "comment": "Undo browser default",
+          "reference": "reboot.css"
+        }
+      ]
+    },
+    {
+      "description": "Remove the list style on navigation lists in all browsers",
+      "selector": "nav ol, nav ul",
+      "declarations": [
+        {
+          "property": "list-style",
+          "value": "none",
+          "reference": "sanitize.css"
+        },
+        {
+          "property": "padding",
+          "value": "0",
+          "reference": "sanitize.css"
+        }
+      ]
+    },
+    {
+      "description": "",
+      "selector": "address",
+      "declarations": [
+        {
+          "property": "margin-bottom",
+          "value": "1rem",
+          "reference": "reboot.css"
+        },
+        {
+          "property": "font-style",
+          "value": "normal",
+          "reference": "reboot.css"
+        },
+        {
+          "property": "line-height",
+          "value": "inherit",
+          "reference": "reboot.css"
+        }
+      ]
+    },
+    {
+      "description": "",
+      "selector": "blockquote",
+      "declarations": [
+        {
+          "property": "margin",
+          "value": "0 0 1rem",
+          "reference": "reboot.css"
+        }
+      ]
+    },
+    {
+      "description": "Apply a consistent margin strategy (matches our type styles).",
+      "selector": "figure",
+      "declarations": [
+        {
+          "property": "margin",
+          "value": "0 0 1rem",
+          "reference": "reboot.css"
+        }
+      ]
+    }
+  ],
+  "Text-level semantics": [
+    {
+      "description": "Remove the gray background on active links in IE 10.",
+      "selector": "a",
+      "declarations": [
+        {
+          "property": "background-color",
+          "value": "transparent"
+        },
+        {
+          "property": "color",
+          "value": "#007bff",
+          "variable": "--link-color",
+          "reference": "reboot.css"
+        },
+        {
+          "property": "text-decoration",
+          "value": "none",
+          "variable": "--link-decoration",
+          "reference": "reboot.css"
+        }
+      ]
+    },
+    {
+      "description": "",
+      "selector": "a:hover",
+      "declarations": [
+        {
+          "property": "color",
+          "value": "#0056b3",
+          "variable": "--link-hover-color",
+          "reference": "reboot.css"
+        },
+        {
+          "property": "text-decoration",
+          "value": "underline",
+          "variable": "--link-hover-decoration",
+          "reference": "reboot.css"
+        }
+      ]
+    },
+    {
+      "description": "And undo these styles for placeholder links/named anchors (without href) which have not been made explicitly keyboard-focusable (without tabindex).\nIt would be more straightforward to just use a[href] in previous block, but that causes specificity issues in many other styles that are too complex to fix.\nSee https://github.com/twbs/bootstrap/issues/19402",
+      "selector": "a:not([href]):not([tabindex]), a:not([href]):not([tabindex]):hover, a:not([href]):not([tabindex]):focus",
+      "declarations": [
+        {
+          "property": "color",
+          "value": "inherit",
+          "reference": "reboot.css"
+        },
+        {
+          "property": "text-decoration",
+          "value": "none",
+          "reference": "reboot.css"
+        },
+        {
+          "property": "outline",
+          "value": "0",
+          "reference": "reboot.css"
+        }
+      ]
+    },
+    {
+      "description": "1. Remove the bottom border in Chrome 57-\n2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.\n3. Add explicit cursor to indicate changed behavior.\n4. Prevent the text-decoration to be skipped.",
+      "selector": "abbr[title]",
+      "declarations": [
+        {
+          "property": "border-bottom",
+          "value": "none",
+          "comment": "1"
+        },
+        {
+          "property": "text-decoration",
+          "value": "underline",
+          "comment": "2"
+        },
+        {
+          "property": "text-decoration",
+          "value": "underline dotted",
+          "comment": "2"
+        },
+        {
+          "property": "cursor",
+          "value": "help",
+          "comment": "3",
+          "reference": "reboot.css"
+        },
+        {
+          "property": "text-decoration-skip-ink",
+          "value": "none",
+          "comment": "4",
+          "reference": "reboot.css"
+        }
+      ]
+    },
+    {
+      "description": "Add the correct font weight in Chrome, Edge, and Safari.",
+      "selector": "b, strong",
+      "declarations": [
+        {
+          "property": "font-weight",
+          "value": "bolder"
+        }
+      ]
+    },
+    {
+      "description": "Use the default monospace user interface font in all browsers\n1. Correct the inheritance and scaling of font size in all browsers.\n2. Correct the odd `em` font sizing in all browsers.",
+      "selector": "code, kbd, samp",
+      "declarations": [
+        {
+          "property": "font-family",
+          "value": "/* macOS 10.10+ */ Menlo, /* Windows 6+ */ Consolas, /* Android 4+ */ Roboto Mono, /* Ubuntu 10.10+ */ Ubuntu Monospace, /* KDE Plasma 5+ */ Noto Mono, /* KDE Plasma 4+ */ Oxygen Mono, /* Linux/OpenOffice fallback */ Liberation Mono, /* fallback */ monospace, /* macOS emoji */ \"Apple Color Emoji\", /* Windows emoji */ \"Segoe UI Emoji\", /* Windows emoji */ \"Segoe UI Symbol\", /* Linux emoji */ \"Noto Color Emoji\"",
+          "variable": "--font-family-monospace",
+          "comment": "1",
+          "reference": "sanitize.css",
+          "options": [
+            {
+              "value": "monospace, monospace",
+              "comment": "1",
+              "reference": "normalize.css"
+            },
+            {
+              "value": "SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+              "comment": "1",
+              "reference": "reboot.css"
+            }
+          ]
+        },
+        {
+          "property": "font-size",
+          "value": "1em",
+          "comment": "2"
+        }
+      ]
+    },
+    {
+      "description": "Add the correct font size in all browsers.",
+      "selector": "small",
+      "declarations": [
+        {
+          "property": "font-size",
+          "value": "80%"
+        }
+      ]
+    },
+    {
+      "description": "Prevent `sub` and `sup` elements from affecting the line height in all browsers.",
+      "selector": "sub, sup",
+      "declarations": [
+        {
+          "property": "font-size",
+          "value": "75%"
+        },
+        {
+          "property": "line-height",
+          "value": "0"
+        },
+        {
+          "property": "position",
+          "value": "relative"
+        },
+        {
+          "property": "vertical-align",
+          "value": "baseline"
+        }
+      ]
+    },
+    {
+      "description": "",
+      "selector": "sub",
+      "declarations": [
+        {
+          "property": "bottom",
+          "value": "-0.25em"
+        }
+      ]
+    },
+    {
+      "description": "",
+      "selector": "sup",
+      "declarations": [
+        {
+          "property": "top",
+          "value": "-0.5em"
+        }
+      ]
+    }
+  ],
+  "Embedded content": [
+    {
+      "description": "Change the alignment on media elements in all browsers",
+      "selector": "audio, canvas, iframe, img, svg, video",
+      "declarations": [
+        {
+          "property": "vertical-align",
+          "value": "middle",
+          "reference": "sanitize.css"
+        }
+      ]
+    },
+    {
+      "description": "Add the correct display in IE 9-.",
+      "selector": "audio, video",
+      "declarations": [
+        {
+          "property": "display",
+          "value": "inline-block",
+          "reference": "sanitize.css"
+        }
+      ]
+    },
+    {
+      "description": "Add the correct display in iOS 4-7.",
+      "selector": "audio:not([controls])",
+      "declarations": [
+        {
+          "property": "display",
+          "value": "none",
+          "reference": "sanitize.css"
+        },
+        {
+          "property": "height",
+          "value": "0",
+          "reference": "sanitize.css"
+        }
+      ]
+    },
+    {
+      "description": "Remove the border on images inside links in IE 10.",
+      "selector": "img",
+      "declarations": [
+        {
+          "property": "border-style",
+          "value": "none"
+        }
+      ]
+    },
+    {
+      "description": "Workaround for the SVG overflow bug in IE10/11 is still required.\nSee https://github.com/twbs/bootstrap/issues/26878",
+      "selector": "svg",
+      "declarations": [
+        {
+          "property": "overflow",
+          "value": "hidden",
+          "reference": "reboot.css"
+        },
+        {
+          "property": "vertical-align",
+          "value": "middle",
+          "reference": "reboot.css"
+        }
+      ]
+    },
+    {
+      "description": "Change the fill color to match the text color in all browsers",
+      "selector": "svg:not([fill])",
+      "declarations": [
+        {
+          "property": "fill",
+          "value": "currentColor",
+          "reference": "sanitize.css"
+        }
+      ]
+    },
+    {
+      "description": "Hide the overflow in IE.",
+      "selector": "svg:not(:root)",
+      "declarations": [
+        {
+          "property": "overflow",
+          "value": "hidden",
+          "reference": "sanitize.css"
+        }
+      ]
+    }
+  ],
+  "Tabular data": [
+    {
+      "description": "Collapse border spacing in all browsers",
+      "selector": "table",
+      "declarations": [
+        {
+          "property": "border-collapse",
+          "value": "collapse",
+          "reference": "sanitize.css"
+        }
+      ]
+    },
+    {
+      "description": "",
+      "selector": "caption",
+      "declarations": [
+        {
+          "property": "padding-top",
+          "value": "0.75rem",
+          "variable": "--table-cell-padding",
+          "reference": "reboot.css"
+        },
+        {
+          "property": "padding-bottom",
+          "value": "0.75rem",
+          "variable": "--table-cell-padding",
+          "reference": "reboot.css"
+        },
+        {
+          "property": "color",
+          "value": "#868e96",
+          "variable": "--table-caption-color",
+          "reference": "reboot.css"
+        },
+        {
+          "property": "text-align",
+          "value": "left",
+          "reference": "reboot.css"
+        },
+        {
+          "property": "caption-side",
+          "value": "bottom",
+          "reference": "reboot.css"
+        }
+      ]
+    },
+    {
+      "description": "Matches default `<td>` alignment by inheriting from the `<body>`, or the closest parent with a set `text-align`.",
+      "selector": "th",
+      "declarations": [
+        {
+          "property": "text-align",
+          "value": "inherit",
+          "reference": "reboot.css"
+        }
+      ]
+    }
+  ],
+  "Forms": [
+    {
+      "description": "1. Change the font styles in all browsers.\n2. Remove the margin in Firefox and Safari.",
+      "selector": "button, input, optgroup, select, textarea",
+      "declarations": [
+        {
+          "property": "font-family",
+          "value": "inherit",
+          "comment": "1"
+        },
+        {
+          "property": "font-size",
+          "value": "100%",
+          "comment": "1"
+        },
+        {
+          "property": "line-height",
+          "value": "1.15",
+          "comment": "1"
+        },
+        {
+          "property": "margin",
+          "value": "0",
+          "comment": "2"
+        }
+      ]
+    },
+    {
+      "description": "Remove the margin on controls in Safari.",
+      "selector": "button, input, select",
+      "declarations": [
+        {
+          "property": "margin",
+          "value": "0",
+          "reference": "sanitize.css"
+        }
+      ]
+    },
+    {
+      "description": "Show the overflow in IE.",
+      "selector": "button, input",
+      "declarations": [
+        {
+          "property": "overflow",
+          "value": "visible"
+        }
+      ]
+    },
+    {
+      "description": "Remove the inheritance of text transform in Edge, Firefox, and IE.",
+      "selector": "button, select",
+      "declarations": [
+        {
+          "property": "text-transform",
+          "value": "none"
+        }
+      ]
+    },
+    {
+      "description": "1. Show the overflow in IE.\n2. Remove the inheritance of text transform in Edge, Firefox, and IE.\n3. Remove the default `border-radius` that macOS Chrome adds.\nDetails at https://github.com/twbs/bootstrap/issues/24093",
+      "selector": "button",
+      "declarations": [
+        {
+          "property": "overflow",
+          "value": "visible",
+          "comment": "1"
+        },
+        {
+          "property": "text-transform",
+          "value": "none",
+          "comment": "2"
+        },
+        {
+          "property": "border-radius",
+          "value": "0",
+          "comment": "3",
+          "reference": "reboot.css"
+        }
+      ]
+    },
+    {
+      "description": "Work around a Firefox/IE bug where the transparent `button` background results in a loss of the default `button` focus styles.\nCredit: https://github.com/suitcss/base/",
+      "selector": "button:focus",
+      "declarations": [
+        {
+          "property": "outline",
+          "value": "1px dotted"
+        },
+        {
+          "property": "outline",
+          "value": "5px auto -webkit-focus-ring-color"
+        }
+      ]
+    },
+    {
+      "description": "Prevent a WebKit bug where (2) destroys native `audio` and `video` controls in Android 4.\nCorrect the inability to style clickable types in iOS and Safari.",
+      "selector": "button, [type=button], [type=reset], [type=submit]",
+      "declarations": [
+        {
+          "property": "-webkit-appearance",
+          "value": "button"
+        }
+      ]
+    },
+    {
+      "description": "Remove the inner border and padding in Firefox.",
+      "selector": "button::-moz-focus-inner, [type=button]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=submit]::-moz-focus-inner",
+      "declarations": [
+        {
+          "property": "border-style",
+          "value": "none"
+        },
+        {
+          "property": "padding",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "description": "Restore the focus styles unset by the previous rule.",
+      "selector": "button:-moz-focusring, [type=button]:-moz-focusring, [type=reset]:-moz-focusring, [type=submit]:-moz-focusring",
+      "declarations": [
+        {
+          "property": "outline",
+          "value": "1px dotted ButtonText"
+        }
+      ]
+    },
+    {
+      "description": "Opinionated: add \"hand\" cursor to non-disabled button elements.",
+      "selector": "button:not(:disabled), [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled)",
+      "declarations": [
+        {
+          "property": "cursor",
+          "value": "pointer",
+          "reference": "reboot.css"
+        }
+      ]
+    },
+    {
+      "description": "Allow labels to use `margin` for spacing.",
+      "selector": "label",
+      "declarations": [
+        {
+          "property": "display",
+          "value": "inline-block",
+          "reference": "reboot.css"
+        },
+        {
+          "property": "margin-bottom",
+          "variable": "--label-margin-bottom",
+          "value": "0.5rem",
+          "reference": "reboot.css"
+        }
+      ]
+    },
+    {
+      "description": "Remove the inheritance of word-wrap in Safari.\nDetails at https://github.com/twbs/bootstrap/issues/24990",
+      "selector": "select",
+      "declarations": [
+        {
+          "property": "word-wrap",
+          "value": "normal",
+          "reference": "reboot.css"
+        }
+      ]
+    },
+    {
+      "description": "1. Correct the padding in Firefox.\n2. Browsers set a default `min-width: min-content;` on fieldsets, unlike e.g. `<div>`s, which have `min-width: 0;` by default.\n   So we reset that to ensure fieldsets behave more like a standard block element.\n   See https://github.com/twbs/bootstrap/issues/12359 and https://html.spec.whatwg.org/multipage/#the-fieldset-and-legend-elements\n3. Reset the default outline behavior of fieldsets so they don't affect page layout.",
+      "selector": "fieldset",
+      "declarations": [
+        {
+          "property": "padding",
+          "value": "0.35em 0.75em 0.625em",
+          "comment": "1"
+        },
+        {
+          "property": "min-width",
+          "value": "0",
+          "comment": "2",
+          "reference": "reboot.css"
+        },
+        {
+          "property": "padding",
+          "value": "0",
+          "comment": "3",
+          "reference": "reboot.css"
+        },
+        {
+          "property": "margin",
+          "value": "0",
+          "comment": "3",
+          "reference": "reboot.css"
+        },
+        {
+          "property": "border",
+          "value": "0",
+          "comment": "3",
+          "reference": "reboot.css"
+        }
+      ]
+    },
+    {
+      "description": "1. Correct the text wrapping in Edge and IE.\n2. Correct the color inheritance from `fieldset` elements in IE.\n3. Remove the padding so developers are not caught out when they zero out `fieldset` elements in all browsers.",
+      "selector": "legend",
+      "declarations": [
+        {
+          "property": "box-sizing",
+          "value": "border-box",
+          "comment": "1",
+          "reference": "normalize.css"
+        },
+        {
+          "property": "display",
+          "value": "table",
+          "comment": "1"
+        },
+        {
+          "property": "max-width",
+          "value": "100%",
+          "comment": "1"
+        },
+        {
+          "property": "white-space",
+          "value": "normal",
+          "comment": "1"
+        },
+        {
+          "property": "color",
+          "value": "inherit",
+          "comment": "2"
+        },
+        {
+          "property": "padding",
+          "value": "0",
+          "comment": "3"
+        },
+        {
+          "property": "width",
+          "value": "100%",
+          "reference": "normalize.css"
+        },
+        {
+          "property": "margin-bottom",
+          "value": "0.5rem",
+          "reference": "normalize.css"
+        },
+        {
+          "property": "font-size",
+          "value": "1.5rem",
+          "reference": "normalize.css"
+        },
+        {
+          "property": "line-height",
+          "value": "inherit",
+          "reference": "normalize.css"
+        }
+      ]
+    },
+    {
+      "description": "1. Add the correct display in Edge and IE.\n2. Add the correct vertical alignment in Chrome, Firefox, and Opera.",
+      "selector": "progress",
+      "declarations": [
+        {
+          "property": "display",
+          "value": "inline-block",
+          "comment": "1",
+          "reference": "sanitize.css"
+        },
+        {
+          "property": "vertical-align",
+          "value": "baseline",
+          "comment": "2"
+        }
+      ]
+    },
+    {
+      "description": "Remove the default vertical scrollbar in IE 10+.",
+      "selector": "textarea",
+      "declarations": [
+        {
+          "property": "overflow",
+          "value": "auto"
+        },
+        {
+          "property": "resize",
+          "value": "vertical",
+          "reference": "sanitize.css / reboot.css"
+        },
+        {
+          "property": "margin",
+          "value": "0",
+          "reference": "sanitize.css"
+        }
+      ]
+    },
+    {
+      "description": "1. Add the correct box sizing in IE 10.\n2. Remove the padding in IE 10.",
+      "selector": "[type=checkbox], [type=radio]",
+      "declarations": [
+        {
+          "property": "box-sizing",
+          "value": "border-box",
+          "comment": "1",
+          "reference": "normalize.css"
+        },
+        {
+          "property": "padding",
+          "value": "0",
+          "comment": "2"
+        }
+      ]
+    },
+    {
+      "description": "Correct the cursor style of increment and decrement buttons in Chrome.",
+      "selector": "[type=number]::-webkit-inner-spin-button, [type=number]::-webkit-outer-spin-button",
+      "declarations": [
+        {
+          "property": "height",
+          "value": "auto"
+        }
+      ]
+    },
+    {
+      "description": "1. Correct the odd appearance in Chrome and Safari.\n2. Correct the outline style in Safari.",
+      "selector": "[type=search]",
+      "declarations": [
+        {
+          "property": "-webkit-appearance",
+          "value": "textfield",
+          "comment": "1"
+        },
+        {
+          "property": "outline-offset",
+          "value": "-2px",
+          "comment": "2"
+        }
+      ]
+    },
+    {
+      "description": "Remove the inner padding in Chrome and Safari on macOS.",
+      "selector": "[type=search]::-webkit-search-decoration",
+      "declarations": [
+        {
+          "property": "-webkit-appearance",
+          "value": "none"
+        }
+      ]
+    },
+    {
+      "description": "1. Correct the inability to style clickable types in iOS and Safari.\n2. Change font properties to `inherit` in Safari.",
+      "selector": "::-webkit-file-upload-button",
+      "declarations": [
+        {
+          "property": "-webkit-appearance",
+          "value": "button",
+          "comment": "1"
+        },
+        {
+          "property": "font",
+          "value": "inherit",
+          "comment": "2"
+        }
+      ]
+    },
+    {
+      "description": "Remove the inner border and padding of focus outlines in Firefox.",
+      "selector": "::-moz-focus-inner",
+      "declarations": [
+        {
+          "property": "border-style",
+          "value": "none",
+          "reference": "sanitize.css"
+        },
+        {
+          "property": "padding",
+          "value": "0",
+          "reference": "sanitize.css"
+        }
+      ]
+    },
+    {
+      "description": "Restore the focus outline styles unset by the previous rule in Firefox.",
+      "selector": ":-moz-focusring",
+      "declarations": [
+        {
+          "property": "outline",
+          "value": "1px dotted ButtonText",
+          "reference": "sanitize.css"
+        }
+      ]
+    },
+    {
+      "description": "Remove the additional :invalid styles in Firefox.",
+      "selector": ":-moz-ui-invalid",
+      "declarations": [
+        {
+          "property": "box-shadow",
+          "value": "none",
+          "reference": "sanitize.css"
+        }
+      ]
+    }
+  ],
+  "Interactive": [
+    {
+      "description": "Add the correct display in Edge, IE 10+, and Firefox.",
+      "selector": "details",
+      "declarations": [
+        {
+          "property": "display",
+          "value": "block"
+        }
+      ]
+    },
+    {
+      "description": "Add the correct styles in Edge, IE, and Safari.",
+      "selector": "dialog",
+      "declarations": [
+        {
+          "property": "background-color",
+          "value": "white",
+          "reference": "sanitize.css"
+        },
+        {
+          "property": "border",
+          "value": "solid",
+          "reference": "sanitize.css"
+        },
+        {
+          "property": "color",
+          "value": "black",
+          "reference": "sanitize.css"
+        },
+        {
+          "property": "display",
+          "value": "block",
+          "reference": "sanitize.css"
+        },
+        {
+          "property": "height",
+          "value": "-moz-fit-content",
+          "reference": "sanitize.css"
+        },
+        {
+          "property": "height",
+          "value": "-webkit-fit-content",
+          "reference": "sanitize.css"
+        },
+        {
+          "property": "height",
+          "value": "fit-content",
+          "reference": "sanitize.css"
+        },
+        {
+          "property": "left",
+          "value": "0",
+          "reference": "sanitize.css"
+        },
+        {
+          "property": "margin",
+          "value": "auto",
+          "reference": "sanitize.css"
+        },
+        {
+          "property": "padding",
+          "value": "1em",
+          "reference": "sanitize.css"
+        },
+        {
+          "property": "position",
+          "value": "absolute",
+          "reference": "sanitize.css"
+        },
+        {
+          "property": "right",
+          "value": "0",
+          "reference": "sanitize.css"
+        },
+        {
+          "property": "width",
+          "value": "-moz-fit-content",
+          "reference": "sanitize.css"
+        },
+        {
+          "property": "width",
+          "value": "-webkit-fit-content",
+          "reference": "sanitize.css"
+        },
+        {
+          "property": "width",
+          "value": "fit-content",
+          "reference": "sanitize.css"
+        }
+      ]
+    },
+    {
+      "description": "",
+      "selector": "dialog:not([open])",
+      "declarations": [
+        {
+          "property": "display",
+          "value": "none",
+          "reference": "sanitize.css"
+        }
+      ]
+    }
+  ],
+  "Scripting": [
+    {
+      "description": "Add the correct display in IE 9-.",
+      "selector": "canvas",
+      "declarations": [
+        {
+          "property": "display",
+          "value": "inline-block",
+          "reference": "sanitize.css"
+        }
+      ]
+    },
+    {
+      "description": "Add the correct display in IE 10+.",
+      "selector": "template",
+      "declarations": [
+        {
+          "property": "display",
+          "value": "none"
+        }
+      ]
+    }
+  ],
+  "User interaction": [
+    {
+      "description": "1. Remove the tapping delay in IE 10.\n2. Remove the tapping delay on clickable elements in all browsers.",
+      "selector": "a, area, button, input, label, select, summary, textarea, [tabindex]",
+      "declarations": [
+        {
+          "property": "-ms-touch-action",
+          "value": "manipulation",
+          "comment": "1"
+        },
+        {
+          "property": "touch-action",
+          "value": "manipulation",
+          "comment": "2"
+        }
+      ]
+    },
+    {
+      "description": "Add the correct display in IE 10.",
+      "selector": "[hidden]",
+      "declarations": [
+        {
+          "property": "display",
+          "value": "none",
+          "options": [
+            {
+              "value": "none !important",
+              "comment": "",
+              "reference": "reboot.css"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Accessibility (sanitize.css)": [
+    {
+      "description": "Change the cursor on busy elements in all browsers.",
+      "selector": "[aria-busy=true]",
+      "declarations": [
+        {
+          "property": "cursor",
+          "value": "progress"
+        }
+      ]
+    },
+    {
+      "description": "Change the cursor on control elements in all browsers.",
+      "selector": "[aria-controls]",
+      "declarations": [
+        {
+          "property": "cursor",
+          "value": "pointer"
+        }
+      ]
+    },
+    {
+      "description": "Change the cursor on disabled, not-editable, or otherwise inoperable elements in all browsers.",
+      "selector": "[aria-disabled=true], [disabled]",
+      "declarations": [
+        {
+          "property": "cursor",
+          "value": "not-allowed"
+        }
+      ]
+    },
+    {
+      "description": "Change the display on visually hidden accessible elements in all browsers",
+      "selector": "[aria-hidden=false][hidden]",
+      "declarations": [
+        {
+          "property": "display",
+          "value": "initial"
+        }
+      ]
+    },
+    {
+      "description": "",
+      "selector": "[aria-hidden=false][hidden]:not(:focus)",
+      "declarations": [
+        {
+          "property": "clip",
+          "value": "rect(0, 0, 0, 0)"
+        },
+        {
+          "property": "position",
+          "value": "absolute"
+        }
+      ]
+    },
+    {
+      "description": "Future-proof rule: in browsers that support :focus-visible, suppress the focus outline on elements that programmatically receive focus but wouldn't normally show a visible focus outline. In general, this would mean that the outline is only applied if the interaction that led to the element receiving programmatic focus was a keyboard interaction, or the browser has somehow determined that the user is primarily a keyboard user and/or wants focus outlines to always be presented.\n\nSee https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible and https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/",
+      "selector": "[tabindex=\"-1\"]:focus:not(:focus-visible)",
+      "declarations": [
+        {
+          "property": "outline",
+          "value": "0 !important",
+          "reference": "reboot.css"
+        }
+      ]
+    }
+  ]
+}
