@@ -6,4 +6,5 @@
 
 <header>
   <Logo />
+  <span class="icon-download" />
 </header>
