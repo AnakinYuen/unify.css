@@ -1,10 +1,39 @@
 <script>
+  import { onMount } from 'svelte';
   import { json } from './store.js';
+  import { generateStyleSheet } from './utils.js';
   import Logo from './Logo.svelte';
   import Popup from './Popup.svelte';
   import Category from './Category.svelte';
 
+  let previewEle;
+  let flexBasis = 'auto';
   let customProperties = [];
+
+  const updatePreviewStyle = preview => {
+    const style = preview.contentDocument.getElementById('style');
+    if (style) {
+      style.innerHTML = generateStyleSheet($json);
+    }
+  };
+
+  onMount(() => updatePreviewHeight(previewEle));
+
+  const updatePreviewHeight = preview => {
+    const previewWindow = preview.contentWindow || preview.contentDocument.parentWindow;
+    if (previewWindow.document.body) {
+      preview.height =
+        previewWindow.document.documentElement.scrollHeight ||
+        previewWindow.document.body.scrollHeight;
+      flexBasis = `${preview.height}px`;
+    }
+  };
+
+  const onPreviewLoad = event => {
+    updatePreviewHeight(event.target);
+    updatePreviewStyle(event.target);
+  };
+
   json.subscribe(obj => {
     const customPropertiesMap = new Map();
     const declarationWithCustomProperty = [];
@@ -41,6 +70,10 @@
       d.path = customPropertiesMap.get(d.variable).path;
     });
     customProperties = Array.from(customPropertiesMap.values());
+
+    if (previewEle) {
+      updatePreviewStyle(previewEle);
+    }
   });
 </script>
 
@@ -57,4 +90,9 @@
     <Category category={key} ruleSets={$json[key]} />
   {/each}
 </div>
-<iframe title="preview" src="preview.html" />
+<iframe
+  title="preview"
+  src="preview.html"
+  on:load={onPreviewLoad}
+  bind:this={previewEle}
+  style="flex-basis:{flexBasis}" />

@@ -37,3 +37,51 @@ export const setNestedObject = (obj, path, keyValues = {}) => {
   });
   return newObj;
 };
+
+export const generateRuleSets = json => {
+  const root = {
+    selector: ':root',
+    declarations: [],
+  };
+
+  const ruleSets = Object.values(json)
+    .flat()
+    .map(ruleSet => {
+      return {
+        selector: ruleSet.selector,
+        declarations: ruleSet.declarations
+          .map(d => {
+            if (d.disable) {
+              return null;
+            }
+            if (d.variable) {
+              root.declarations.push({
+                property: d.variable,
+                value: d.value,
+              });
+              return {
+                property: d.property,
+                value: `var(${d.variable})`,
+              };
+            }
+            return {
+              property: d.property,
+              value: d.value,
+            };
+          })
+          .filter(d => d),
+      };
+    });
+
+  return [root].concat(ruleSets).filter(ruleSet => ruleSet.declarations.length);
+};
+
+export const generateStyleSheet = json => {
+  const rss = generateRuleSets(json);
+  const oneLineStyleSheet = rss
+    .map(
+      rs => `${rs.selector}{${rs.declarations.map(pv => `${pv.property}:${pv.value};`).join('')}}`,
+    )
+    .join('');
+  return oneLineStyleSheet;
+};
