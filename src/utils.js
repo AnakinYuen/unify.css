@@ -1,3 +1,5 @@
+import cssbeautify from 'cssbeautify';
+
 export const sanitizeHTML = str => {
   const temp = document.createElement('div');
   temp.textContent = str;
@@ -76,12 +78,22 @@ export const generateRuleSets = json => {
   return [root].concat(ruleSets).filter(ruleSet => ruleSet.declarations.length);
 };
 
-export const generateStyleSheet = json => {
+export const generateStyleSheet = (json, beautify = false) => {
   const rss = generateRuleSets(json);
   const oneLineStyleSheet = rss
     .map(
       rs => `${rs.selector}{${rs.declarations.map(pv => `${pv.property}:${pv.value};`).join('')}}`,
     )
     .join('');
+  if (beautify) {
+    return cssbeautify(oneLineStyleSheet);
+  }
   return oneLineStyleSheet;
+};
+
+export const cssForDownload = (filename, text) => {
+  const anchor = document.createElement('a');
+  anchor.setAttribute('href', 'data:text/css;charset=utf-8,' + encodeURIComponent(text));
+  anchor.setAttribute('download', filename);
+  anchor.click();
 };

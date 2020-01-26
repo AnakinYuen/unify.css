@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { json } from './store.js';
-  import { generateStyleSheet } from './utils.js';
+  import { cssForDownload, generateStyleSheet } from './utils.js';
   import Logo from './Logo.svelte';
   import Popup from './Popup.svelte';
   import Category from './Category.svelte';
@@ -18,6 +18,10 @@
   };
 
   onMount(() => updatePreviewHeight(previewEle));
+
+  const downloadStyleSheet = () => {
+    cssForDownload('unify.css', generateStyleSheet($json, true));
+  };
 
   const updatePreviewHeight = preview => {
     const previewWindow = preview.contentWindow || preview.contentDocument.parentWindow;
@@ -79,7 +83,7 @@
 
 <header>
   <Logo />
-  <span class="icon-download" />
+  <span class="icon-download" on:click={downloadStyleSheet} />
 </header>
 <div class="editor">
   <Popup />
