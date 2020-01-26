@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+html {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
 body {
   background: #1b1b1b;
   margin: 0;
