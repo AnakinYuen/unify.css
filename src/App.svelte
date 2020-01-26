@@ -8,3 +8,5 @@
   <Logo />
   <span class="icon-download" />
 </header>
+<div class="editor" />
+<iframe title="preview" src="preview.html" />
